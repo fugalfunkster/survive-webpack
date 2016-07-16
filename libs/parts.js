@@ -45,3 +45,21 @@ exports.setupCSS = function(paths) {
     }
   };
 };
+
+exports.setupBabelReactES6 = function(paths) {
+  return {
+    module: {
+      loaders: [
+        {
+          test: /\.js$/,
+          loader: 'babel',
+          query: {
+            cacheDirectory: true,
+            presets: ['react', 'es2015']
+          },
+          include: paths
+        }
+      ]
+    }
+  };
+};

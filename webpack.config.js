@@ -23,7 +23,12 @@ const common = {
     new HtmlWebpackPlugin({
       title: 'Webpack demo'
     })
-  ]
+  ],
+  // Important! Do not remove ''. If you do, imports without
+  // an extension won't work anymore!
+  resolve: {
+    extensions: ['', '.js', '.jsx']
+  }
 };
 
 
@@ -32,11 +37,13 @@ var config;
 switch(process.env.npm_lifecycle_event) {
   case 'build':
     config = merge(common,  { devtool: 'source-map' },
-                   parts.setupCSS(PATHS.app));
+                   parts.setupCSS(PATHS.app),
+                   parts.setupBabelReactES6(PATHS.app));
     break;
   default:
     config = merge(common, { devtool: 'eval-source-map' },
                    parts.setupCSS(PATHS.app),
+                   parts.setupBabelReactES6(PATHS.app),
                    parts.devServer({
                      // Customize host/port here if needed
                      host: process.env.HOST,
