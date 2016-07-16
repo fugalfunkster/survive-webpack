@@ -9,7 +9,7 @@ const App = React.createClass({
   render: function () {
     return (
       <div>
-        <Paragraph>Hello World Inside a P!</Paragraph>
+        <Paragraph>Hello World!</Paragraph>
       </div>
     );
   }

@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const cssnext = require('postcss-cssnext');
+const values = require('postcss-modules-values');
 
 exports.devServer = function(options) {
   return {
@@ -50,7 +51,7 @@ exports.setupCSS = function(paths) {
     ],
     // PostCSS plugins go here, make sure you required them up top!
     postcss: function () {
-      return [cssnext];
+      return [cssnext, values];
     }
   };
 };
