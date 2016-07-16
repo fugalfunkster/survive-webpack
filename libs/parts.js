@@ -1,4 +1,5 @@
 const webpack = require('webpack');
+const cssnext = require('postcss-cssnext');
 
 exports.devServer = function(options) {
   return {
@@ -38,10 +39,14 @@ exports.setupCSS = function(paths) {
       loaders: [
         {
           test: /\.css$/,
-          loaders: ['style', 'css'],
+          loaders: ['style', 'css', 'postcss'],
           include: paths
         }
       ]
+    },
+    // PostCSS plugins go here, make sure you required them up top!
+    postcss: function () {
+      return [cssnext];
     }
   };
 };
