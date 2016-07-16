@@ -1,4 +1,5 @@
 const webpack = require('webpack');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const cssnext = require('postcss-cssnext');
 
 exports.devServer = function(options) {
@@ -39,11 +40,14 @@ exports.setupCSS = function(paths) {
       loaders: [
         {
           test: /\.css$/,
-          loader: 'style!css?modules!postcss',
+          loader: ExtractTextPlugin.extract('style-loader', 'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss-loader'),
           include: paths
         }
       ]
     },
+    plugins: [
+      new ExtractTextPlugin('style.css', { allChunks: true }),
+    ],
     // PostCSS plugins go here, make sure you required them up top!
     postcss: function () {
       return [cssnext];

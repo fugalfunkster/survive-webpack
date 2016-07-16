@@ -1,4 +1,13 @@
 .font {
-  font-size: 3em;
+  font-size: 4em;
   color: var(--primaryColor);
+}
+
+@media (min-width: 10em) {
+  .font {
+    color: green;
+  }
+  .font:hover {
+    color: red;
+  }
 }
