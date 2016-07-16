@@ -39,7 +39,7 @@ exports.setupCSS = function(paths) {
       loaders: [
         {
           test: /\.css$/,
-          loaders: ['style', 'css', 'postcss'],
+          loader: 'style!css?modules!postcss',
           include: paths
         }
       ]

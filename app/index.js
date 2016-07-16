@@ -1,12 +1,16 @@
+import './main.css';
 
-require('./main.css');
 import React from 'react';
-import ReactDOM from 'react-dom'; 
+import ReactDOM from 'react-dom';
+
+import Paragraph from './components/paragraph';
 
 const App = React.createClass({
   render: function () {
     return (
-      <div>Hello World</div>
+      <div>
+        <Paragraph>Hello World Inside a P!</Paragraph>
+      </div>
     );
   }
 });
