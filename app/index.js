@@ -15,8 +15,8 @@ const App = React.createClass({
   }
 });
 
-var element = document.createElement('div');
-element.id = "app";
+let element = document.createElement('div');
+element.id = 'app';
 document.body.appendChild(element);
 
 ReactDOM.render(<App/>, document.getElementById('app'));
